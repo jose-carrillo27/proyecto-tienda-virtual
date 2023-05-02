@@ -1,0 +1,97 @@
+
+.home_backgrund{
+  padding-top: 60px;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../public/fondo.jpg);
+  display: flex;
+  align-items: center;
+    
+}
+
+.home_presentacion{
+  width: 400px;
+	height: 200px;
+	background: #081630;
+	border-radius: 20px;
+	padding-top: 20px; 
+	box-shadow: 0 0 10px #03020D;
+  margin-left: 200px;
+}
+
+.home_backgrund_p{
+	color: #fff;
+	text-align: center;
+}
+.p_full{
+	font-size: 30px;
+}
+.p_mini{
+	font-size: 20px;
+}
+
+/* beneficios */
+
+.home_beneficios{
+  margin: 30px 0 40px 0;
+  text-align: center;
+  color: #081630;
+}
+
+.home__beneficios_icon{
+  margin: auto;
+}
+
+.button{
+  background: #081630;
+  color: #fff;
+  width: 200px;
+  height: 30px;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 50px;
+  border: none;
+}
+
+.button:hover{
+  background: #01050b;
+}
+
+.contenedor_icon{
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.icon{
+  margin: 10px;
+  color: #081630;
+  font-size: 40px;
+}
+
+/* ubicacion */
+
+.home_ubicacion{
+  margin-top: 50px;
+  margin-bottom: 70px;
+  text-align: center;
+  color: #081630;;
+}
+
+.h2{
+  margin-bottom: 50px;
+}
+
+.img{
+  display: block;
+  width: 95%;
+  margin: 40px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .home_presentacion{
+    display: none;
+  }
+}

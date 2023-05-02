@@ -1,0 +1,8 @@
+.mostrar{
+  display: block;
+  position: relative;
+}
+
+.notMostrar{
+  display: none;   
+}

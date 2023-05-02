@@ -1,0 +1,18 @@
+.navbarHome{
+  background: #081630; 
+  position: fixed;
+  width: 100%;
+}
+
+.Link{
+  color: #fff;
+  font-size: 18px;
+}
+
+.navbarHome .ul-navbar{
+  margin: auto;
+}
+
+.navbarHome .link-navbar i{
+  font-size: 20px;
+}

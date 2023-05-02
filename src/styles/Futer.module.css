@@ -1,0 +1,37 @@
+.futer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #081630;
+}
+
+
+
+.informacin_p{
+  margin: 8px 0;
+  color: "#fff"
+}
+.redes_p{
+  margin: 8px 0;
+}
+
+.icon{
+  margin-right: 3px;
+}
+
+@media screen and (max-width: 770px) {
+  .futer img{
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+  .footer-informacin,.footer-redes{
+    text-align: center;
+  }
+  .footer-informacin h2,.footer-redes h2{
+    font-size: 20px;
+  }
+  .footer-informacin p,.footer-redes p{
+    font-size: 12px;
+  }
+}
