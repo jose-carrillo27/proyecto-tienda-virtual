@@ -43,15 +43,15 @@ function Item({ product, setCarritoCompra }) {
       sx={{ paddingLeft: "60px", paddingRight: "60px" }}
     >
       {product.map((item) => (
-        <Grid item key={product.id} xs={12} sm={6} md={3}>
+        <Grid item key={product.id} xs={3} sm={3} md={3}>
           <Card>
             <CardActionArea href={`/product/${item.id}/${item.id_category}`}>
               <CardMedia
                 component="img"
                 alt={item.nombre}
-                height="150"
                 image={`/uploads/${item.image}`}
                 title={item.nombre}
+                sx={{ height: { sm: 100, md: 150 } }}
               />
               <CardContent
                 sx={{
@@ -62,13 +62,16 @@ function Item({ product, setCarritoCompra }) {
               >
                 <Typography
                   gutterBottom
-                  variant="h5"
-                  component="h2"
-                  sx={{ color: "#2196f3" }}
+                  sx={{ color: "#2196f3", fontSize: { sm: 15, md: 20 } }}
                 >
                   $ {item.precio_venta}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  sx={{ fontSize: { sm: 12, md: 15 } }}
+                >
                   {item.nombre}
                 </Typography>
               </CardContent>
@@ -83,15 +86,17 @@ function Item({ product, setCarritoCompra }) {
                 <Button
                   variant="outlined"
                   onClick={() => setCarritoCompra(item)}
+                  sx={{ fontSize: { sm: 9, md: 15 } }}
                 >
-                  Agregar al carrito
+                  Agregar
                 </Button>
                 <Button
                   variant="contained"
                   onClick={() => setCarritoCompra(item)}
                   href="/informacionCompra"
+                  sx={{ fontSize: { sm: 9, md: 15 } }}
                 >
-                  comprar ahora
+                  comprar
                 </Button>
               </Stack>
             </CardActions>

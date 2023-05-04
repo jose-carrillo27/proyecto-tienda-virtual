@@ -52,10 +52,20 @@ export default function ResumenCompra() {
     <>
       <Grid
         container
-        sx={{ justifyContent: "center", paddingTop: 10, marginBottom: 5 }}
+        sx={{
+          justifyContent: "center",
+          paddingTop: { xs: 4, md: 10 },
+          marginBottom: 5,
+        }}
       >
         {nuevoArt.map((item) => (
-          <Grid key={item.id} item xs={10} md={10} sx={{ paddingRight: 5 }}>
+          <Grid
+            key={item.id}
+            item
+            xs={10}
+            md={10}
+            sx={{ marginLeft: { xs: 3, sm: 8 }, paddingRight: 5 }}
+          >
             <Paper elevation={0} sx={{ backgroundColor: "#fafafa" }}>
               <Grid
                 container
@@ -67,6 +77,8 @@ export default function ResumenCompra() {
                 }}
               >
                 <Grid
+                  xs={8}
+                  md={8}
                   item
                   sx={{
                     display: "flex",
@@ -105,6 +117,8 @@ export default function ResumenCompra() {
                 </Grid>
 
                 <Grid
+                  xs={3}
+                  md={3}
                   item
                   sx={{
                     display: "flex",
@@ -174,6 +188,7 @@ export default function ResumenCompra() {
           justifyContent: "space-between",
           alignItems: "center",
           marginTop: 5,
+          marginBottom: 4,
         }}
       >
         <Grid item xs={6} md={6}>

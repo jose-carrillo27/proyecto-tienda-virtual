@@ -105,11 +105,11 @@ export default function informacionCompra() {
           handleClose={(event, reason) => handleClose(event, reason)}
           open={open}
         />
-        <Grid item lg={7}>
+        <Grid item md={7} lg={7}>
           <Card
             sx={{
-              paddingLeft: 14,
-              paddingRight: 7,
+              paddingLeft: { xs: 0, md: 7 },
+              paddingRight: { xs: 0, md: 7 },
               paddingTop: 5,
               paddingBottom: 5,
             }}
@@ -255,6 +255,12 @@ export default function informacionCompra() {
                 display: "flex",
                 justifyContent: "space-between",
                 p: 2,
+                flexDirection: {
+                  xs: "column",
+                  sm: "row",
+                  md: "column",
+                  lg: "row",
+                },
               }}
             >
               <Button startIcon={<ArrowBackIosIcon />} href="/carrito">
@@ -274,6 +280,7 @@ export default function informacionCompra() {
 
         <Grid
           item
+          md={5}
           lg={5}
           sx={{
             backgroundColor: "#fafafa",

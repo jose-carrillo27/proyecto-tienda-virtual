@@ -14,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Collapse from "@mui/material/Collapse";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
@@ -28,6 +29,11 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import StarBorder from "@mui/icons-material/StarBorder";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -57,23 +63,11 @@ function DrawerAppBar({ handleClick, cantidad }) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickList = () => {
+    setOpen(!open);
+  };
 
   //para las categorias en el drawer de la vista de compras
 
@@ -87,6 +81,47 @@ function DrawerAppBar({ handleClick, cantidad }) {
     const res = await axios.get(URL);
     setCategorias(res.data.data);
   };
+
+  const drawer = (
+    <Box sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        M.E
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <List>
+        <ListItemButton onClick={handleClickList}>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Categorias" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse
+          in={open}
+          timeout="auto"
+          unmountOnExit
+          onClick={handleDrawerToggle}
+        >
+          <List component="div" disablePadding>
+            {categorias.map((item) => (
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemText primary={item.nombre} />
+              </ListItemButton>
+            ))}
+          </List>
+        </Collapse>
+      </List>
+    </Box>
+  );
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -141,20 +176,17 @@ function DrawerAppBar({ handleClick, cantidad }) {
     }
   };
 
-  // const container =
-  //   window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar component="nav" sx={{ background: "#fff" }}>
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="#424242"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, display: { md: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -163,14 +195,19 @@ function DrawerAppBar({ handleClick, cantidad }) {
             component="div"
             sx={{
               flexGrow: 1,
-              display: { xs: "none", sm: "block" },
+              display: { xs: "none", sm: "none", md: "block" },
               fontSize: "12px",
               color: "#424242",
             }}
           >
             ENVÍO GRATIS POR COMPRAS DESDE $200.000
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box
+            sx={{
+              width: { xs: "100%", md: "auto" },
+              textAlign: { xs: "end" },
+            }}
+          >
             {entrada ? (
               <>
                 <Tooltip title="Open settings">
@@ -234,27 +271,43 @@ function DrawerAppBar({ handleClick, cantidad }) {
         >
           <Grid
             container
-            sx={{ alignItems: "center", justifyContent: "space-around" }}
+            sx={{ alignItems: "center", marginBottom: { xs: 2, md: 0 } }}
           >
-            <Grid item lg={11} sx={{ textAlign: "center" }}>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={5}
+              lg={5}
+              sx={{
+                textAlign: { xs: "center", sm: "center", md: "end", lg: "end" },
+              }}
+            >
               <Typography
                 variant="h6"
                 component="div"
                 sx={{
                   flexGrow: 1,
-                  display: { xs: "none", sm: "block", lg: "inline" },
-                  fontSize: "12px",
                   color: "#000",
-                  textAlign: "right",
-                  fontSize: "25px",
-                  marginRight: "20px",
+                  fontSize: 25,
                 }}
               >
                 MUNDO ELECTRONICO
               </Typography>
-
+            </Grid>
+            <Grid
+              item
+              xs={11}
+              sm={11}
+              md={6}
+              lg={6}
+              sx={{
+                display: { xs: "flex", sm: "flex", md: "block" },
+                justifyContent: { xs: "center", sm: "center" },
+              }}
+            >
               <TextField
-                sx={{ minWidth: 500 }}
+                sx={{ width: "75%", marginLeft: 2 }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -264,11 +317,11 @@ function DrawerAppBar({ handleClick, cantidad }) {
                     </InputAdornment>
                   ),
                 }}
-                placeholder="Search customer"
+                placeholder="Busacar productos"
                 variant="outlined"
               />
             </Grid>
-            <Grid item lg={1} sx={{ textAlign: "center" }}>
+            <Grid item xs={1} sm={1} md={1} lg={1} sx={{ textAlign: "center" }}>
               <IconButton
                 color="#424242"
                 aria-label="add to shopping cart"
@@ -283,12 +336,12 @@ function DrawerAppBar({ handleClick, cantidad }) {
         </Toolbar>
         <Toolbar
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box>
             <ButtonGroup
               variant="text"
               aria-label="text button group"
@@ -297,7 +350,10 @@ function DrawerAppBar({ handleClick, cantidad }) {
               {categorias.map((item) => (
                 <Button
                   key={item.id}
-                  sx={{ color: "#424242" }}
+                  sx={{
+                    color: "#424242",
+                    fontSize: 14,
+                  }}
                   onClick={() => handleClick(item.id)}
                 >
                   {item.nombre}
@@ -309,15 +365,14 @@ function DrawerAppBar({ handleClick, cantidad }) {
       </AppBar>
       <Box component="nav">
         <Drawer
-          // container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import { Grid } from "@mui/material";
+import { Card, CardContent, Grid } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import axios from "axios";
@@ -88,109 +88,119 @@ export default function Validation({ alto, getUsers }) {
           !alto
             ? { display: "none" }
             : {
-                "& .MuiTextField-root": { m: 1, width: "28ch" },
-                paddingLeft: "20px",
+                display: "block",
+                marginTop: 2,
               }
         }
         noValidate
         autoComplete="off"
       >
-        <Grid container spacing={3}>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              label="Nombre"
-              placeholder="nombre"
-              variant="filled"
-              name="nombre"
-              value={values.nombre}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <TextField
-              required
-              id="filled-disabled"
-              label="Apellido"
-              placeholder="apellido"
-              variant="filled"
-              value={values.apellido}
-              onChange={handleChange}
-              name="apellido"
-            />
-          </Grid>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <TextField
-              required
-              id="filled-number"
-              label="CC"
-              placeholder="cc"
-              type="number"
-              variant="filled"
-              name="CC"
-              value={values.CC}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              label="Email"
-              placeholder="email"
-              variant="filled"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <TextField
-              required
-              id="filled-select-currency"
-              select
-              label="Select"
-              type="number"
-              helperText="Please select a role"
-              variant="filled"
-              name="id_rool"
-              onChange={handleChange}
-            >
-              {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <TextField
-              required
-              id="filled-password-input"
-              label="Password"
-              type="password"
-              placeholder="password"
-              autoComplete="current-password"
-              variant="filled"
-              name="contraseña"
-              value={values.contraseña}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xl={3} lg={4} sm={6} xs={12}>
-            <Stack spacing={2} direction="row">
-              <Button variant="outlined">Cancelar</Button>
-              <Button
-                variant="contained"
-                type="submit"
-                onClick={() => getUsers()}
-              >
-                Guardar
-              </Button>
-            </Stack>
-          </Grid>
-        </Grid>
+        <Card>
+          <CardContent>
+            <Grid container spacing={3}>
+              <Grid item xl={3} md={4} sm={6} xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="filled-required"
+                  label="Nombre"
+                  placeholder="nombre"
+                  variant="filled"
+                  name="nombre"
+                  value={values.nombre}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xl={3} md={4} sm={6} xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="filled-disabled"
+                  label="Apellido"
+                  placeholder="apellido"
+                  variant="filled"
+                  value={values.apellido}
+                  onChange={handleChange}
+                  name="apellido"
+                />
+              </Grid>
+              <Grid item xl={3} md={4} sm={6} xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="filled-number"
+                  label="CC"
+                  placeholder="cc"
+                  type="number"
+                  variant="filled"
+                  name="CC"
+                  value={values.CC}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xl={3} md={4} sm={6} xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="filled-required"
+                  label="Email"
+                  placeholder="email"
+                  variant="filled"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xl={3} md={4} sm={6} xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="filled-select-currency"
+                  select
+                  label="Select"
+                  type="number"
+                  helperText="Please select a role"
+                  variant="filled"
+                  name="id_rool"
+                  onChange={handleChange}
+                >
+                  {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+              <Grid item xl={3} md={4} sm={6} xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="filled-password-input"
+                  label="Password"
+                  type="password"
+                  placeholder="password"
+                  autoComplete="current-password"
+                  variant="filled"
+                  name="contraseña"
+                  value={values.contraseña}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xl={3} lg={4} sm={6} xs={12}>
+                <Stack spacing={2} direction="row">
+                  <Button variant="outlined">Cancelar</Button>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    onClick={() => getUsers()}
+                  >
+                    Guardar
+                  </Button>
+                </Stack>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
       </Box>
     </>
   );

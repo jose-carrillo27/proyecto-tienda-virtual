@@ -49,7 +49,7 @@ export default function Product({ entrada, entrada2 }) {
       <DrawerAppBar cantidad={cantidad} handleClick={handleClick} />
       <Box sx={{ marginBottom: "30px", marginTop: 5 }}>
         <Grid container spacing={2} sx={{ padding: "60px" }}>
-          <Grid item xs={12} sm={6} md={3} lg={5}>
+          <Grid item xs={12} sm={6} md={5}>
             <Card>
               <CardMedia
                 component="img"
@@ -60,7 +60,7 @@ export default function Product({ entrada, entrada2 }) {
               />
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} lg={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <CardContent>
               <Typography gutterBottom variant="h4" component="h2">
                 {entrada.data[0].nombre}
@@ -88,7 +88,7 @@ export default function Product({ entrada, entrada2 }) {
               </Typography>
             </CardContent>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} lg={3}>
+          <Grid item xs={12} sm={12} md={3}>
             <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
               <TextField
                 required

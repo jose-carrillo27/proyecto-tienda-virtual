@@ -123,7 +123,7 @@ const ProductGallery = () => {
       <Box sx={{ marginBottom: "30px" }}>
         <Grid container spacing={2} sx={{ padding: "60px" }}>
           {products.map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} md={3}>
+            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
               <Card>
                 <CardActionArea
                   href={`/product/${product.id}/${product.id_category}`}

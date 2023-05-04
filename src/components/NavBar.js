@@ -115,13 +115,19 @@ export default function NavBar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Inicio</Typography>
+                <Link className="navbar-brand" href="/">
+                  <Typography textAlign="center">Inicio</Typography>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Contactanos</Typography>
+                <Link className="navbar-brand" href="/contactanos">
+                  <Typography textAlign="center">Contactanos</Typography>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Productos</Typography>
+                <Link className="navbar-brand" href="/products_">
+                  <Typography textAlign="center">Productos</Typography>
+                </Link>
               </MenuItem>
             </Menu>
           </Box>

@@ -108,7 +108,8 @@ export default function FormProducts({ alto }) {
         !alto
           ? { display: "none" }
           : {
-              "& .MuiTextField-root": { m: 1, width: "28ch" },
+              display: "block",
+              marginTop: 2,
             }
       }
       noValidate
@@ -123,7 +124,7 @@ export default function FormProducts({ alto }) {
             container
             spacing={3}
           >
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
                 fullWidth
@@ -136,9 +137,10 @@ export default function FormProducts({ alto }) {
                 onChange={(e) => setNombre(e.target.value)}
               />
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
+                fullWidth
                 id="filled-required"
                 label="numero de ref"
                 placeholder="numero de ref"
@@ -148,9 +150,10 @@ export default function FormProducts({ alto }) {
                 name="numero_ref"
               />
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
+                fullWidth
                 id="filled-number"
                 label="stock"
                 placeholder="stock"
@@ -161,9 +164,10 @@ export default function FormProducts({ alto }) {
                 onChange={(e) => setStock(e.target.value)}
               />
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
+                fullWidth
                 id="filled-number"
                 label="costo"
                 placeholder="costo"
@@ -174,9 +178,10 @@ export default function FormProducts({ alto }) {
                 onChange={(e) => setCosto(e.target.value)}
               />
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
+                fullWidth
                 id="filled-number"
                 label="precio"
                 placeholder="precio"
@@ -187,9 +192,10 @@ export default function FormProducts({ alto }) {
                 onChange={(e) => setPrecio_venta(e.target.value)}
               />
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
+                fullWidth
                 id="filled-select-currency"
                 select
                 label="Select"
@@ -206,9 +212,10 @@ export default function FormProducts({ alto }) {
                 ))}
               </TextField>
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <TextField
                 required
+                fullWidth
                 id="filled-file"
                 type="file"
                 placeholder="file"
@@ -218,7 +225,7 @@ export default function FormProducts({ alto }) {
                 onChange={handleData}
               />
             </Grid>
-            <Grid item xl={3} lg={4} sm={6} xs={12}>
+            <Grid item xl={3} md={4} sm={6} xs={12}>
               <Stack spacing={2} direction="row">
                 <Button variant="outlined">Cancelar</Button>
                 <Button

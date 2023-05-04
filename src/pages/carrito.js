@@ -63,15 +63,23 @@ export default function Carrito() {
         <Grid
           container
           spacing={2}
-          sx={{ alignItems: "center", justifyContent: "space-between" }}
+          sx={{
+            alignItems: "center",
+            justifyContent: { xs: "center", sm: "space-between" },
+          }}
         >
           <Grid item>
-            <Typography variant="h4" component="h1" sx={{ fontWeight: "bold" }}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: { xs: 25, sm: 29, md: 35 },
+              }}
+            >
               Tu carrito
             </Typography>
           </Grid>
           {nuevoArt.length == 0 ? (
-            <Grid>
+            <Grid item>
               <Button variant="text" href="/products_">
                 seguir comprando
               </Button>
@@ -80,7 +88,7 @@ export default function Carrito() {
             <Grid item sx={{ display: "flex" }}>
               <Grid>
                 <Typography
-                  sx={{ marginRight: 2 }}
+                  sx={{ marginRight: 2, fontSize: { xs: 14, sm: 15, md: 16 } }}
                   variant="body1"
                   color="textSecondary"
                   component="p"
@@ -88,7 +96,7 @@ export default function Carrito() {
                   Subtotal(impuestos incluidos)
                 </Typography>
                 <Typography
-                  sx={{ marginRight: 2 }}
+                  sx={{ marginRight: 2, fontSize: { xs: 16, sm: 17, md: 19 } }}
                   variant="h6"
                   component="h1"
                   color="#616161"
@@ -97,7 +105,7 @@ export default function Carrito() {
                 </Typography>
               </Grid>
               <Button
-                size="large"
+                size="medium"
                 variant="contained"
                 startIcon={<ShoppingCartIcon />}
                 href="/informacionCompra"
@@ -113,9 +121,9 @@ export default function Carrito() {
           <Grid
             key={item.id}
             item
-            xs={12}
-            sm={6}
-            md={3}
+            xs={11}
+            sm={11}
+            md={11}
             lg={11}
             sx={{ marginBottom: 2 }}
           >
@@ -131,6 +139,9 @@ export default function Carrito() {
           <Grid container>
             <Grid
               item
+              xs={11}
+              sm={11}
+              md={11}
               lg={11}
               sx={{
                 display: "flex",
@@ -138,46 +149,65 @@ export default function Carrito() {
                 marginBottom: 1,
               }}
             >
-              <Typography variant="h6" component="h2" color="#616161">
+              <Typography
+                variant="h6"
+                component="h2"
+                color="#616161"
+                sx={{ fontSize: { xs: 15, sm: 20 } }}
+              >
                 Subtotal (Impuestos Incluidos)
               </Typography>
-              <Typography variant="h6" component="h2" color="#616161">
-                ${subtotal}
+              <Typography
+                variant="h6"
+                component="h2"
+                color="#616161"
+                sx={{ fontSize: { xs: 16, sm: 20 } }}
+              >
+                ${subtotal} COP
               </Typography>
             </Grid>
             <Grid item lg={11} sx={{ marginBottom: 2 }}>
-              <Typography color="#616161">
+              <Typography color="#616161" sx={{ fontSize: { xs: 13, sm: 15 } }}>
                 Gastos de envio calculados al momento del pago
               </Typography>
-              <Link href="#" underline="none">
+              <Link
+                href="#"
+                underline="none"
+                sx={{ fontSize: { xs: 13, sm: 15 } }}
+              >
                 {"Calcular gastos de envio"}
               </Link>
             </Grid>
-            <Grid
-              item
-              lg={12}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Grid sx={{ marginRight: 3 }}>
-                <Button
-                  size="large"
-                  variant="contained"
-                  startIcon={<ShoppingCartIcon />}
-                  href="/informacionCompra"
-                >
-                  comprar
-                </Button>
-              </Grid>
-              <Grid>
-                <Button
-                  size="large"
-                  variant="text"
-                  startIcon={<ExitToAppIcon />}
-                  href="/products_"
-                >
-                  seguir comprar
-                </Button>
-              </Grid>
+          </Grid>
+          <Grid
+            item
+            lg={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: { xs: "column", sm: "row" },
+            }}
+          >
+            <Grid sx={{ marginRight: { xs: 0, md: 2 } }}>
+              <Button
+                size="large"
+                variant="contained"
+                startIcon={<ShoppingCartIcon />}
+                href="/informacionCompra"
+              >
+                comprar
+              </Button>
+            </Grid>
+            <Grid>
+              <Button
+                size="large"
+                variant="text"
+                startIcon={<ExitToAppIcon />}
+                href="/products_"
+              >
+                seguir comprar
+              </Button>
             </Grid>
           </Grid>
         </Container>
@@ -195,6 +225,7 @@ export default function Carrito() {
             paddingLeft: 4,
             paddingRight: 4,
             marginBottom: 3,
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <Typography>Tu carrito esta vacio</Typography>

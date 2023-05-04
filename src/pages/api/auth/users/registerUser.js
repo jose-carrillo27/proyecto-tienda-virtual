@@ -23,7 +23,7 @@ export default async function RegisterUser(req, res) {
         } else {
           let passHash = await bcryptjs.hash(contraseña, 8);
           const user = await UserModel.create({
-            id_rool: 2,
+            id_rool: id_rool,
             nombre: nombre,
             apellido: apellido,
             CC: CC,

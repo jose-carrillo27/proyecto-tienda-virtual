@@ -20,5 +20,18 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/dashboard/", "/users/"],
+  matcher: [
+    "/dashboard/",
+    "/users/",
+    "/customers/",
+    "/products/",
+    "/ventas/",
+    "/api/auth/clients/show/",
+    "/api/auth/clients/showCustomers/",
+    "/api/auth/clients/delete/:id/",
+    "/api/auth/compra/delete/:id/",
+    "/api/auth/compra/update/:id/",
+    "/api/auth/products/upload/",
+    "/api/auth/users/registerUser/",
+  ],
 };

@@ -35,13 +35,13 @@ export default function Envios() {
         <title>Envios</title>
       </Head>
       <Grid container>
-        <Grid item lg={7}>
+        <Grid item md={7} lg={7}>
           <Card
             sx={{
-              paddingLeft: 14,
-              paddingRight: 7,
+              paddingLeft: { xs: 2, md: 7 },
+              paddingRight: { xs: 2, md: 7 },
               paddingTop: 5,
-              paddingBottom: 18,
+              paddingBottom: { sx: 5, md: 18 },
             }}
           >
             <MigasPanEnvios />
@@ -50,50 +50,58 @@ export default function Envios() {
               sx={{
                 border: "1px solid #e0e0e0",
                 borderRadius: 1,
-                paddingTop: 2,
-                paddingBottom: 2,
-                paddingLeft: 4,
+                padding: "15px 25px",
                 marginBottom: 3,
               }}
             >
-              <Grid container sx={{ marginBottom: 1 }}>
-                <Grid item xs={2} md={2}>
-                  <Typography color="textSecondary" sx={{ fontSize: 14 }}>
+              <Grid
+                container
+                sx={{ marginBottom: 1, justifyContent: "space-between" }}
+              >
+                <Grid sx={{ display: "flex" }}>
+                  <Typography
+                    color="textSecondary"
+                    sx={{ fontSize: { xs: 12, sm: 14 }, marginRight: 2 }}
+                  >
                     Contacto
                   </Typography>
+                  <Typography sx={{ fontSize: { xs: 12, sm: 14 } }}>
+                    {value.email}
+                  </Typography>
                 </Grid>
-                <Grid item sx={8} md={8}>
-                  <Typography sx={{ fontSize: 14 }}>{value.email}</Typography>
-                </Grid>
-                <Grid item xs={2} md={2}>
+                <Grid>
                   <Link
                     underline="none"
                     color="primary"
                     href="/informacionCompra"
-                    sx={{ fontSize: 13 }}
+                    sx={{ fontSize: { xs: 11, sm: 13 } }}
                   >
                     Modificar
                   </Link>
                 </Grid>
               </Grid>
               <Divider />
-              <Grid container sx={{ marginTop: 1 }}>
-                <Grid item xs={2} md={2}>
-                  <Typography color="textSecondary" sx={{ fontSize: 14 }}>
+              <Grid
+                container
+                sx={{ marginTop: 1, justifyContent: "space-between" }}
+              >
+                <Grid sx={{ display: "flex" }}>
+                  <Typography
+                    color="textSecondary"
+                    sx={{ fontSize: { xs: 12, sm: 14 }, marginRight: 3 }}
+                  >
                     Enviar a
                   </Typography>
-                </Grid>
-                <Grid item xs={8} md={8}>
-                  <Typography sx={{ fontSize: 14 }}>
+                  <Typography sx={{ fontSize: { xs: 12, sm: 14 } }}>
                     {value.direccion}
                   </Typography>
                 </Grid>
-                <Grid item xs={2} md={2}>
+                <Grid>
                   <Link
                     underline="none"
                     color="primary"
                     href="/informacionCompra"
-                    sx={{ fontSize: 13 }}
+                    sx={{ fontSize: { xs: 11, sm: 13 } }}
                   >
                     Modificar
                   </Link>
@@ -132,13 +140,19 @@ export default function Envios() {
                 display: "flex",
                 justifyContent: "space-between",
                 p: 2,
+                flexDirection: {
+                  xs: "column",
+                  sm: "row",
+                  md: "column",
+                  lg: "row",
+                },
               }}
             >
               <Button
                 startIcon={<ArrowBackIosIcon />}
                 href="/informacionCompra"
               >
-                Volver a informacion
+                Volver
               </Button>
               <Button
                 color="primary"
@@ -154,6 +168,7 @@ export default function Envios() {
 
         <Grid
           item
+          md={5}
           lg={5}
           sx={{
             backgroundColor: "#fafafa",
